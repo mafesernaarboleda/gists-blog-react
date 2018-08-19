@@ -5,9 +5,7 @@ import {
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './pages/Home';
-import {
-  store
-} from './flux';
+import store from './flux';
 
 const Root = () => (
   <Provider store={store}>

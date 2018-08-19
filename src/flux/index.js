@@ -2,18 +2,20 @@ import {
   combineReducers,
   createStore,
   applyMiddleware
-} from 'redux'
+} from 'redux';
 import {
   createLogger
-} from 'redux-logger'
-import thunk from 'redux-thunk'
+} from 'redux-logger';
+import thunk from 'redux-thunk';
 import {
   composeWithDevTools
-} from 'redux-devtools-extension'
-import gist from './gist/reducer'
+} from 'redux-devtools-extension';
+import gist from './gist/reducer';
+import user from './user/reducer';
 
 const reducers = combineReducers({
-  gist
+  gist,
+  user
 });
 
 const loggerMiddleware = createLogger({
@@ -22,7 +24,8 @@ const loggerMiddleware = createLogger({
   duration: true
 });
 const middlewares = [thunk, loggerMiddleware];
-export const store = createStore(
+
+export default createStore(
   reducers,
   composeWithDevTools(applyMiddleware(...middlewares))
 );

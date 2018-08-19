@@ -1,12 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { FETCH_GET_GISTS } from './api'
+import { FETCH_GET_GISTS, FETCH_GET_COMMENTS, FETCH_GET_USER } from './api';
 
 class App extends Component {
-
-  componentDidMount(){
-    this.props.fetchData(FETCH_GET_GISTS())
+  componentDidMount() {
+    const { fetchData } = this.props;
+    fetchData(FETCH_GET_GISTS());
+    fetchData(FETCH_GET_COMMENTS('172e201db07617a1feacae8d145f8cf0'));
+    fetchData(FETCH_GET_USER('mafesernaarboleda'));
   }
 
   render() {
@@ -17,7 +19,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          To get started, edit
+          <code>src/App.js</code>
+          and save to reload.
         </p>
       </div>
     );
