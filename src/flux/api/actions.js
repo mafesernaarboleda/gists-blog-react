@@ -1,6 +1,4 @@
-import {
-  FETCHING_DATA
-} from './types';
+import { FETCHING_DATA } from './types';
 
 export const createAction = (type, payload) => ({
   type,

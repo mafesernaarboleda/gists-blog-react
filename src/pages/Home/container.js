@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { FETCH_GET_GISTS, FETCH_GET_COMMENTS, FETCH_GET_USER } from './api';
+import { FETCH_GET_GISTS, FETCH_GET_COMMENTS, FETCH_GET_USER, FETCH_GET_GIST } from './api';
 
 class App extends Component {
   componentDidMount() {
     const { fetchData } = this.props;
-    fetchData(FETCH_GET_GISTS());
+    const url = 'gists/public';
+    fetchData(FETCH_GET_GISTS(url));
     fetchData(FETCH_GET_COMMENTS('172e201db07617a1feacae8d145f8cf0'));
+    fetchData(FETCH_GET_GIST('172e201db07617a1feacae8d145f8cf0'));
     fetchData(FETCH_GET_USER('mafesernaarboleda'));
   }
 
