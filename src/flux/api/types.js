@@ -1,0 +1,1 @@
+export const FETCHING_DATA = 'FETCHING_DATA';
