@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { FETCH_GET_GISTS } from './api'
 
 class App extends Component {
+
+  componentDidMount(){
+    this.props.fetchData(FETCH_GET_GISTS())
+  }
+
   render() {
     return (
       <div className="App">

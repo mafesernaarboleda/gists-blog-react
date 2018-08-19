@@ -22,6 +22,9 @@
     "coverage": "yarn run test -- --coverage && http-server -c-1 -o -p 9875 ./coverage",
     "eject": "react-scripts eject"
   },
+  "resolutions": {
+    "react-scripts/jest": "23.3.0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

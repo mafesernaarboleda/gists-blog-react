@@ -1,8 +1,18 @@
 import React from 'react';
+import {
+  Provider
+} from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import App from './pages/Home';
+import {
+  store
+} from './flux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const Root = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+ReactDOM.render(<Root />, document.getElementById('root'));
