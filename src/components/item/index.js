@@ -66,16 +66,24 @@ const Item = ({
       <Title>
         <Link to={`/gists/${id}`} className="link">{title}</Link>
       </Title>
-      <Link to={`/gists/${id}`} className="link">Read more</Link>
+      <Link to={`/gists/${id}`}>
+        Read more
+      </Link>
     </Main>
     <div className="d-flex justify-content-between">
       <EmojiWrapper>
         <span role="img" aria-label="Emoji">📑</span>
-        <Count>{files}</Count>
+        <Count>
+          {files}
+          &nbsp;files
+        </Count>
       </EmojiWrapper>
       <EmojiWrapper>
         <span role="img" aria-label="Emoji">💬</span>
-        <Count>{comments}</Count>
+        <Count>
+          {comments}
+         &nbsp;comments
+        </Count>
       </EmojiWrapper>
     </div>
   </Panel>
@@ -85,7 +93,7 @@ Item.defaultProps = {
   title: 'UNTITLE',
   image: '',
   url: '',
-  user: '',
+  name: '',
   date: '',
   files: 0,
   comments: 0
@@ -95,7 +103,7 @@ Item.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
   image: PropTypes.string,
-  user: PropTypes.string,
+  name: PropTypes.string,
   date: PropTypes.string,
   url: PropTypes.string,
   files: PropTypes.number,

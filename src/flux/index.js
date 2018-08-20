@@ -11,11 +11,9 @@ import {
   composeWithDevTools
 } from 'redux-devtools-extension';
 import gist from './gist/reducer';
-import user from './user/reducer';
 
 const reducers = combineReducers({
-  gist,
-  user
+  gist
 });
 
 const loggerMiddleware = createLogger({

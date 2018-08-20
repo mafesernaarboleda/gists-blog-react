@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import { FETCH_GET_GISTS, FETCH_GET_USER } from './api';
+import PropTypes from 'prop-types';
+import FETCH_GET_GISTS from './api';
 import Item from '../../components/item';
+import Spinner from '../../components/spinner';
 
 class Home extends Component {
   componentDidMount() {
-    const { fetchData, search } = this.props;
-    fetchData(FETCH_GET_USER('mafesernaarboleda'));
+    const { search } = this.props;
     this.search(search);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.search !== this.props.search) {
-      this.search(nextProps.search)
+    const { search } = this.props;
+    if (nextProps.search !== search) {
+      this.search(nextProps.search);
     }
   }
 
@@ -22,7 +24,7 @@ class Home extends Component {
   }
 
   render() {
-    const { listGist } = this.props;
+    const { listGist, loading } = this.props;
     return (
       <div className="container">
         <div className="row">
@@ -35,11 +37,13 @@ class Home extends Component {
               title,
               files,
               user,
+              urlUser,
               comments
             }) => (
               <Item
                 key={id}
                 id={id}
+                url={urlUser}
                 image={image}
                 date={created}
                 title={title}
@@ -50,10 +54,30 @@ class Home extends Component {
             ))
           }
           </div>
+          { loading && <Spinner />}
         </div>
       </div>
     );
   }
 }
+
+Home.defaultProps = {
+  search: '',
+  listGist: [],
+  loading: false
+};
+
+Home.propTypes = {
+  fetchData: PropTypes.func.isRequired,
+  search: PropTypes.string,
+  listGist: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    created: PropTypes.string,
+  }),
+  loading: PropTypes.bool
+};
 
 export default Home;

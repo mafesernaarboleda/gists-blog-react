@@ -5,10 +5,11 @@ import { generateFetch } from '../../flux/api/actions';
 import container from './container';
 
 const stateProp = ({ gist }) => {
-  const { listGists, search } = gist;
+  const { listGists, search, loading } = gist;
   return {
     listGist: getListGist(listGists),
-    search
+    search,
+    loading
   };
 };
 

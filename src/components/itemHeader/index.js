@@ -38,7 +38,7 @@ const ItemHeader = ({
     <ContainerInfo>
       <div>
         <UserName>
-          <a href={url}>{name}</a>
+          <a href={url} target="_blank">{name}</a>
         </UserName>
       </div>
       <Small>{date}</Small>

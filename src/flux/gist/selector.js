@@ -20,9 +20,15 @@ export const getListGist = createSelector(
   }))
 );
 
+export const getListIDs = createSelector(
+  [listGists],
+  gists => gists.map(item => item.id)
+);
+
 export const getListComments = createSelector(
   [listComments],
   state => state.commentsByGist.length > 0 && state.commentsByGist.map(item => ({
+    id: item.id,
     description: item.body,
     created: item.created_at,
     urlUser: item.user.html_url,
