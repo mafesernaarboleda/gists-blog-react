@@ -22,7 +22,7 @@ export const getListGist = createSelector(
 
 export const getListIDs = createSelector(
   [listGists],
-  gists => gists.length > 0  && gists.map(item => item.id)
+  gists => gists.length > 0 && gists.map(item => item.id)
 );
 
 export const getListComments = createSelector(
