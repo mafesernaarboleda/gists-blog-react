@@ -40,7 +40,7 @@
       "git add"
     ]
   },
-  "homepage": "https://mafesernaarboleda.github.io/react-gists-blog/",
+  "homepage": ".",
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
