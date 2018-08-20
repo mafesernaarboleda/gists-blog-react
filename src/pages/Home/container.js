@@ -7,17 +7,17 @@ import Spinner from '../../components/spinner';
 class Home extends Component {
   componentDidMount() {
     const { search } = this.props;
-    this.search(search);
+    this.findGists(search);
   }
 
   componentWillReceiveProps(nextProps) {
     const { search } = this.props;
     if (nextProps.search !== search) {
-      this.search(nextProps.search);
+      this.findGists(nextProps.search);
     }
   }
 
-  search(search) {
+  findGists(search) {
     const { fetchData } = this.props;
     const url = search === '' ? 'gists/public' : `users/${search}/gists`;
     fetchData(FETCH_GET_GISTS(url));
@@ -30,32 +30,32 @@ class Home extends Component {
         <div className="row">
           <div className="col-md-12">
             {
-            listGist.map(({
-              id,
-              created,
-              image,
-              title,
-              files,
-              user,
-              urlUser,
-              comments
-            }) => (
-              <Item
-                key={id}
-                id={id}
-                url={urlUser}
-                image={image}
-                date={created}
-                title={title}
-                files={files}
-                name={user}
-                comments={comments}
-              />
-            ))
-          }
+              listGist.map(({
+                id,
+                created,
+                image,
+                title,
+                files,
+                user,
+                urlUser,
+                comments
+              }) => (
+                <Item
+                  key={id}
+                  id={id}
+                  url={urlUser}
+                  image={image}
+                  date={created}
+                  title={title}
+                  files={files}
+                  name={user}
+                  comments={comments}
+                />
+              ))
+            }
           </div>
-          { loading && <Spinner />}
         </div>
+        { loading && <Spinner />}
       </div>
     );
   }

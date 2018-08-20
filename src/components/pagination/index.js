@@ -1,16 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+
+const Container = styled.div`
+  font-size: 30px;
+
+  a:hover {
+    text-decoration: none;
+  }
+`;
 
 const Pagination = ({ next, prev }) => (
-  <div>
+  <Container className="d-flex justify-content-between">
     <div>
-      <Link to={`/gists/${prev}`}>{prev}</Link>
+      {
+        prev
+          ? (
+            <Link to={`/gists/${prev}`}>
+              <span role="img" aria-label="emoji">🔙</span>
+            </Link>
+          )
+          : <span />
+      }
     </div>
     <div>
-      <Link to={`/gists/${next}`}>{next}</Link>
+      {
+        next
+          ? (
+            <Link to={`/gists/${next}`}>
+              <span role="img" aria-label="emoji">🔜</span>
+            </Link>
+          )
+          : <span />
+      }
     </div>
-  </div>
+  </Container>
 );
 
 Pagination.defaultProps = {

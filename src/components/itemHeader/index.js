@@ -12,7 +12,7 @@ const ContainerHeader = styled.div`
 const ContainerInfo = styled.div`
   padding-left: 10px;
 
-  a {
+  a, span {
     color: #00ab6b;
     text-decoration: none;
   }
@@ -31,6 +31,7 @@ const ItemHeader = ({
   url,
   name,
   image,
+  isUserWithLink,
   date
 }) => (
   <ContainerHeader>
@@ -38,10 +39,18 @@ const ItemHeader = ({
     <ContainerInfo>
       <div>
         <UserName>
-          <a href={url} target="_blank">{name}</a>
+          {
+            isUserWithLink
+              ? <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
+              : <span>{name}</span>
+          }
         </UserName>
       </div>
-      <Small>{date}</Small>
+      <Small>
+        <span role="img" aria-label="Emoji">📅</span>
+        &nbsp;
+        {date}
+      </Small>
     </ContainerInfo>
   </ContainerHeader>
 );
@@ -51,6 +60,7 @@ ItemHeader.defaultProps = {
   image: '',
   url: '',
   date: '',
+  isUserWithLink: false
 };
 
 ItemHeader.propTypes = {
@@ -58,6 +68,7 @@ ItemHeader.propTypes = {
   name: PropTypes.string,
   date: PropTypes.string,
   url: PropTypes.string,
+  isUserWithLink: PropTypes.bool
 };
 
 export default ItemHeader;

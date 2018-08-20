@@ -16,19 +16,16 @@ const Panel = styled.div`
 `;
 
 const Title = styled.h3`
-  font-family: "Lora", Georgia, serif;
-  font-size: 15px;
-  line-height: 1.7;
-  font-weight: 300;
   border: none;
+  font-family: "Lora", Georgia, serif;
+  white-space: pre-line;
 
   a {
     color: rgba(0,0,0,0.8);
     text-decoration: none;
     font-weight: 700;
-    font-size: 29px;
-    letter-spacing: -.022em;
-    line-height: 1.12;
+    font-size: 23px;
+    line-height: 1.1;
 
     &:hover {
       color: #00ab6b;
@@ -39,6 +36,13 @@ const Title = styled.h3`
 
 const Main = styled.div`
   margin-bottom: 20px;
+
+  a.read-more {
+    text-decoration: none;
+    color: rgba(0,0,0,0.3);
+    font-size: 12px;
+    margin-top: 16px;
+  }
 `;
 
 const EmojiWrapper = styled.div`
@@ -66,8 +70,8 @@ const Item = ({
       <Title>
         <Link to={`/gists/${id}`} className="link">{title}</Link>
       </Title>
-      <Link to={`/gists/${id}`}>
-        Read more
+      <Link to={`/gists/${id}`} className="read-more">
+        <span>Read more</span>
       </Link>
     </Main>
     <div className="d-flex justify-content-between">

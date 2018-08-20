@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import ItemHeader from '../itemHeader';
+
+const Container = styled.div`
+    padding: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+`;
 
 const Comment = ({
   description,
@@ -9,14 +15,14 @@ const Comment = ({
   name,
   date
 }) => (
-  <div className="post-list-item">
+  <Container>
     <div className="flex-container">
       <ItemHeader url={url} name={name} image={image} date={date} />
       <div className="post-info">
         <p>{description}</p>
       </div>
     </div>
-  </div>
+  </Container>
 );
 
 Comment.defaultProps = {
