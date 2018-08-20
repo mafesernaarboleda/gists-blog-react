@@ -5,6 +5,7 @@ import {
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './pages/Home';
+import 'bootstrap/dist/css/bootstrap.css';
 import store from './flux';
 
 const Root = () => (

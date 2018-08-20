@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { FETCH_GET_GISTS, FETCH_GET_COMMENTS, FETCH_GET_USER, FETCH_GET_GIST } from './api';
+import './App.css';
+import Item from '../../components/item';
 
 class App extends Component {
+
   componentDidMount() {
     const { fetchData } = this.props;
     const url = 'gists/public';
@@ -14,17 +15,29 @@ class App extends Component {
   }
 
   render() {
+    const { listGist } = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit
-          <code>src/App.js</code>
-          and save to reload.
-        </p>
+      <div className="App container">
+        {
+          listGist.map(({
+            id,
+            created,
+            image,
+            title,
+            files,
+            comments
+          }) => (
+            <Item
+              key={id}
+              id={id}
+              image={image}
+              date={created}
+              title={title}
+              files={files}
+              comments={comments}
+            />
+          ))
+        }
       </div>
     );
   }
