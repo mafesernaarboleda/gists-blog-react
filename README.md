@@ -1,7 +1,7 @@
 # React + API Gist
 We're transporting you back to the early 2000's – we're building a quick blog. We're asking you to build an application with two pages, one to list blog posts and a short excerpt, one to display a full blog post. The backend for this blog are Github Gists. The idea is that you can configure a username to look up on Github and the index page will display excerpts of the Gists. The post detail page will then display the full content of the gist. Possible enhancements are a searchable list of posts, only show certain Gists as blog posts, formatted Markdown as HTML etc.
 
-#Requeriments
+# Requeriments
 Requirements
 * As a reader, I want to be able to see a list of blog posts that a writer has posted on Github in the form of Gists, so that I can make a decision on which post to read.
 As a reader, I want to be able to select a post on the index page and see the post details, so that I can read the post.
@@ -15,9 +15,9 @@ As a writer, I want to able to make updates to a post by updating the Gist so th
 * [Redux](https://redux.js.org/)
 * [ESLint](https://github.com/eslint/eslint)
 * [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) as plugin for helping us to follow the airbnb code style guide.
-*[Prettier](https://github.com/prettier/prettier)
-*[Styled-components](https://github.com/styled-components/styled-components)
-*[Rselect](https://github.com/reduxjs/reselect)
+* [Prettier](https://github.com/prettier/prettier)
+* [Styled-components](https://github.com/styled-components/styled-components)
+* [Rselect](https://github.com/reduxjs/reselect)
 
 # Getting started
 1. Clone Project
