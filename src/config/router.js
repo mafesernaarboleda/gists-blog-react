@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import Detail from '../pages/Detail';
 import Header from '../components/header';
 
 const Router = () => (
-  <BrowserRouter>
+  <HashRouter>
     <React.Fragment>
       <Header />
       <Switch>
@@ -17,7 +17,7 @@ const Router = () => (
         <Route path="/gists/:id" component={Detail} />
       </Switch>
     </React.Fragment>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 
