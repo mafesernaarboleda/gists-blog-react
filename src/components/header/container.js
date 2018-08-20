@@ -51,7 +51,7 @@ class Header extends Component {
   render() {
     return (
       <NavBarContainer className="navbar navbar-default navbar-fixed-top">
-        <div className="container-fluid col-md-10 col-md-offset-1">
+        <div className="container-fluid col-md-9 col-md-offset-1">
           <div className="navbar-header">
             <Link className="navbar-brand" to="/">
               <img height="40" alt="Stories" src={Logo} />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/styles/hljs';
+import { githubGist } from 'react-syntax-highlighter/styles/hljs';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -45,7 +45,7 @@ class Detail extends Component {
 
   generatorPagination(index) {
     const { listGistIds, match } = this.props;
-    return listGistIds[listGistIds.indexOf(match.params.id) + index];
+    return listGistIds && listGistIds[listGistIds.indexOf(match.params.id) + index];
   }
 
   render() {
@@ -70,7 +70,7 @@ class Detail extends Component {
                         <SyntaxHighlighter
                           showLineNumbers
                           language={item.language.toLowerCase()}
-                          style={docco}
+                          style={githubGist}
                           key={`content-${item.filename}`}
                         >
                           {item.content}

@@ -8,7 +8,7 @@ const getGistById = state => state;
 
 export const getListGist = createSelector(
   [listGists],
-  gists => gists.map(item => ({
+  gists => gists.length > 0 && gists.map(item => ({
     id: item.id,
     created: new Date(item.created_at).toLocaleDateString(),
     title: item.description,
@@ -22,7 +22,7 @@ export const getListGist = createSelector(
 
 export const getListIDs = createSelector(
   [listGists],
-  gists => gists.map(item => item.id)
+  gists => gists.length > 0  && gists.map(item => item.id)
 );
 
 export const getListComments = createSelector(

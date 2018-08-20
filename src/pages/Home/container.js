@@ -28,30 +28,36 @@ class Home extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+          <div className="container-fluid col-md-10 col-md-offset-1">
             {
-              listGist.map(({
-                id,
-                created,
-                image,
-                title,
-                files,
-                user,
-                urlUser,
-                comments
-              }) => (
-                <Item
-                  key={id}
-                  id={id}
-                  url={urlUser}
-                  image={image}
-                  date={created}
-                  title={title}
-                  files={files}
-                  name={user}
-                  comments={comments}
-                />
-              ))
+              listGist
+                ? listGist.map(({
+                  id,
+                  created,
+                  image,
+                  title,
+                  files,
+                  user,
+                  urlUser,
+                  comments
+                }) => (
+                  <Item
+                    key={id}
+                    id={id}
+                    url={urlUser}
+                    image={image}
+                    date={created}
+                    title={title}
+                    files={files}
+                    name={user}
+                    comments={comments}
+                  />
+                ))
+                : ( !loading && (
+                  <div className="d-flex justify-content-center">
+                    <img src="https://i1.wp.com/www.filmla.com/wp-content/uploads/2016/04/travolta-404-comp.gif" alt="404 error" />
+                  </div>
+                ))
             }
           </div>
         </div>
