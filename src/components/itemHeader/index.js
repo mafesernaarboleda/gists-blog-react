@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Avatar from '../avatar';
+import Color from '../../config/theme';
 
 const ContainerHeader = styled.div`
   display: flex;
@@ -13,18 +14,18 @@ const ContainerInfo = styled.div`
   padding-left: 10px;
 
   a, span {
-    color: #00ab6b;
+    color: ${Color.accentcolor};
     text-decoration: none;
   }
 `;
 
 const UserName = styled.span`
-  color: #00ab6b;
+  color: ${Color.lightGray};
   text-decoration: none;
 `;
 
 const Small = styled.small`
-  color: rgba(0, 0, 0, 0.44);
+  color: ${Color.lightGray};
 `;
 
 const ItemHeader = ({

@@ -4,30 +4,31 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Logo from '../../assets/img/logo.svg';
+import Color from '../../config/theme';
 
 const NavBarContainer = styled.nav`
-  background-color: rgba(255,255,255,0.9);
-  border-bottom: 2px solid rgba(0,0,0,0.05);
+  background-color: ${Color.white};
+  border-bottom: 2px solid ${Color.borderColor};
   margin-bottom: 20px;
 `;
 
 const Search = styled.input`
-  padding: 0.6em 0.8em 0.7em 2.5em;
-  border-radius: 20px;
-  border: 1px solid rgba(0,0,0,0.1);
-  outline: none;
   background-color: transparent;
+  border: 1px solid ${Color.borderColor};
+  border-radius: 20px;
+  padding: 0.6em 0.8em 0.7em 2.5em;
+  outline: none;
 `;
 
 const Button = styled.button`
+  background: transparent;
   border: none;
-  position: absolute;
-  top: 5px;
   border-radius: 50%;
-  width: 40px;
   height: 40px;
   outline: none;
-  background: transparent;
+  position: absolute;
+  top: 5px;
+  width: 40px;
 `;
 
 class Header extends Component {

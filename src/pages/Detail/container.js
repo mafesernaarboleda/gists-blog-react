@@ -11,15 +11,17 @@ import Comment from '../../components/comment';
 import Pagination from '../../components/pagination';
 import Spinner from '../../components/spinner';
 
+import Color from '../../config/theme';
+
 const Container = styled.div`
-  padding-top: 2em;
   padding-bottom: 2em;
   padding-left: 3%;
   padding-right: 3%;
+  padding-top: 2em;
 `;
 
 const CommentsContainer = styled.div`
-  background-color: #ffff;
+  background-color: ${Color.white};
 `;
 
 class Detail extends Component {

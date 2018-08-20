@@ -4,15 +4,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ItemHeader from '../itemHeader';
 
+import Color from '../../config/theme';
+
 const Panel = styled.div`
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 20px 0 20px;
-  background: #ffffff;
-  padding: 20px;
-  margin-bottom: 10px;
-  border: 1px solid rgba(0,0,0,0.09);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  background: ${Color.white};
+  border: 1px solid ${Color.borderColor};
   border-radius: 3px;
+  border-bottom: 1px solid ${Color.borderColor};
+  box-shadow: 0 1px 4px ${Color.superLightGray};
+  margin-bottom: 10px;
+  padding: 20px;
 `;
 
 const Title = styled.h3`
@@ -21,14 +22,14 @@ const Title = styled.h3`
   white-space: pre-line;
 
   a {
-    color: rgba(0,0,0,0.8);
+    color: ${Color.black};
     text-decoration: none;
     font-weight: 700;
     font-size: 23px;
     line-height: 1.1;
 
     &:hover {
-      color: #00ab6b;
+      color: ${Color.accentcolor};
       text-decoration: none;
     }
   }
@@ -38,10 +39,15 @@ const Main = styled.div`
   margin-bottom: 20px;
 
   a.read-more {
-    text-decoration: none;
-    color: rgba(0,0,0,0.3);
+    color: ${Color.lightGray};
     font-size: 12px;
+    font-style: italic;
     margin-top: 16px;
+    text-decoration: none;
+  }
+
+  a.read-more:hover {
+    font-weight: 600;
   }
 `;
 
@@ -50,7 +56,7 @@ const EmojiWrapper = styled.div`
 `;
 
 const Count = styled.span`
-  color: #00ab6b;
+  color: ${Color.lightGray};
   padding-left: 5px;
 `;
 

@@ -14,7 +14,7 @@ const Router = () => (
           path="/"
           component={Home}
         />
-        <Route path='/gists/:id' component={Detail} />
+        <Route path="/gists/:id" component={Detail} />
       </Switch>
     </React.Fragment>
   </BrowserRouter>
