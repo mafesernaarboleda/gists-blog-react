@@ -2,15 +2,15 @@ import {
   combineReducers,
   createStore,
   applyMiddleware
-} from 'redux'
+} from 'redux';
 import {
   createLogger
-} from 'redux-logger'
-import thunk from 'redux-thunk'
+} from 'redux-logger';
+import thunk from 'redux-thunk';
 import {
   composeWithDevTools
-} from 'redux-devtools-extension'
-import gist from './gist/reducer'
+} from 'redux-devtools-extension';
+import gist from './gist/reducer';
 
 const reducers = combineReducers({
   gist
@@ -22,7 +22,8 @@ const loggerMiddleware = createLogger({
   duration: true
 });
 const middlewares = [thunk, loggerMiddleware];
-export const store = createStore(
+
+export default createStore(
   reducers,
   composeWithDevTools(applyMiddleware(...middlewares))
 );
