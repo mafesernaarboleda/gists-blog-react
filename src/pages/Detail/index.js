@@ -1,16 +1,12 @@
 import { connect } from 'react-redux';
-import { fetching } from '../../flux/gist/actions';
-import { getListGist } from '../../flux/gist/selector';
-import { generateFetch } from '../../flux/api/actions';
 import container from './container';
+import { fetching } from '../../flux/gist/actions';
+import { getGist } from '../../flux/gist/selector';
+import { generateFetch } from '../../flux/api/actions';
 
-const stateProp = ({ gist }) => {
-  const { listGists, search } = gist;
-  return {
-    listGist: getListGist(listGists),
-    search
-  };
-};
+const stateProp = ({ gist }) => ({
+  gist: getGist(gist)
+});
 
 const dispatchProps = dispatch => ({
   fetchData(value) {

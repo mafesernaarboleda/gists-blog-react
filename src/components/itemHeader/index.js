@@ -1,5 +1,8 @@
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import Avatar from '../avatar';
 
 const ContainerHeader = styled.div`
@@ -15,22 +18,46 @@ const ContainerInfo = styled.div`
   }
 `;
 
+const UserName = styled.span`
+  color: #00ab6b;
+  text-decoration: none;
+`;
+
 const Small = styled.small`
   color: rgba(0, 0, 0, 0.44);
 `;
 
-const ItemHeader = ({ url, name, image, date }) => (
+const ItemHeader = ({
+  url,
+  name,
+  image,
+  date
+}) => (
   <ContainerHeader>
     <Avatar image={image} />
     <ContainerInfo>
       <div>
-        <span>
+        <UserName>
           <a href={url}>{name}</a>
-        </span>
+        </UserName>
       </div>
       <Small>{date}</Small>
     </ContainerInfo>
   </ContainerHeader>
 );
+
+ItemHeader.defaultProps = {
+  name: '',
+  image: '',
+  url: '',
+  date: '',
+};
+
+ItemHeader.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  date: PropTypes.string,
+  url: PropTypes.string,
+};
 
 export default ItemHeader;

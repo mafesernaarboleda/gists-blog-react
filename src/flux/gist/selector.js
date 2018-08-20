@@ -37,6 +37,7 @@ export const getGist = createSelector(
     const { gistById } = state;
     return {
       image: gistById.owner && gistById.owner.avatar_url,
+      user: gistById.owner && gistById.owner.login,
       urlUser: gistById.owner && gistById.owner.html_url,
       created: gistById.created_at,
       title: gistById.description,

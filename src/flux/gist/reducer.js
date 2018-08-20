@@ -5,7 +5,8 @@ import {
   SET_COMMENTS_SUCCESS,
   SET_COMMENTS_FAILURE,
   SET_GIST_SUCCESS,
-  SET_GIST_FAILURE
+  SET_GIST_FAILURE,
+  SET_SEARCH
 } from './types';
 import createReducer from '../config';
 
@@ -14,7 +15,8 @@ const initialState = {
   commentsByGist: [],
   gistById: {},
   error: '',
-  loading: false
+  loading: false,
+  search: ''
 };
 
 const setListGists = (state = initialState, {
@@ -22,7 +24,8 @@ const setListGists = (state = initialState, {
 }) => ({
   ...state,
   listGists: payload,
-  loading: false
+  loading: false,
+  gistById: {}
 });
 
 const setListComments = (state = initialState, {
@@ -39,6 +42,13 @@ const setGistById = (state = initialState, {
   ...state,
   gistById: payload,
   loading: false
+});
+
+const setSearch = (state = initialState, {
+  payload
+}) => ({
+  ...state,
+  search: payload
 });
 
 const fetching = (state = initialState) => ({
@@ -60,7 +70,8 @@ const descriptor = {
   [SET_COMMENTS_SUCCESS]: setListComments,
   [SET_COMMENTS_FAILURE]: setFailFetching,
   [SET_GIST_SUCCESS]: setGistById,
-  [SET_GIST_FAILURE]: setFailFetching
+  [SET_GIST_FAILURE]: setFailFetching,
+  [SET_SEARCH]: setSearch
 };
 
 export default createReducer(initialState, descriptor);

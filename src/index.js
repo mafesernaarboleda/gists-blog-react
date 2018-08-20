@@ -4,13 +4,13 @@ import {
 } from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './pages/Home';
+import Router from './config/router';
 import 'bootstrap/dist/css/bootstrap.css';
 import store from './flux';
 
 const Root = () => (
   <Provider store={store}>
-    <App />
+    <Router />
   </Provider>
 );
 
